@@ -1,0 +1,396 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: #6aadb6;
+    font-family: 'Days One';
+    font-size: 1.6rem;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 500;
+    color: white;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.navContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titleContainer {
+    width: 100%;
+    padding: 1rem;
+}
+
+.titleContainer .main-title {
+    text-align: center;
+}
+
+.navContainer .logo > a > img {
+    width: 100%;
+    height: 100%;
+    background: lightblue;
+    border: 5px solid white;
+    border-radius: 50%;
+}
+
+.navContainer .menu-movil {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+    height: 4rem;
+}
+
+.navContainer .menu-movil > .icon {
+    font-size: 3rem;
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+.sidebar {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: -100%;
+    background: transparent;
+    transition: 0.3s ease;
+    z-index: 99;
+    background: #919191;
+}
+
+.sidebar > a {
+    margin: 1rem 0;
+}
+
+.closeContainer {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.closeContainer p {
+    padding: 2rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+}
+
+.openSidebar {
+    left: 0;
+}
+
+.sliderContainer {
+}
+
+.navContainer > .logo {
+    width: 100px;
+    height: 100px;
+}
+
+#slider {
+    overflow: hidden;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#slider figure {
+    position: relative;
+    width: 600%;
+    margin: 0;
+    left: 0;
+    animation: 25s slider infinite;
+}
+#slider figure img {
+    width: 16.6666%;
+    float: left;
+}
+@keyframes slider {
+    0% {
+        left: 0;
+    }
+    15% {
+        left: 0;
+    }
+    20% {
+        left: -100%;
+    }
+    35% {
+        left: -100%;
+    }
+    40% {
+        left: -200%;
+    }
+    55% {
+        left: -200%;
+    }
+    60% {
+        left: -300%;
+    }
+    75% {
+        left: -300%;
+    }
+    80% {
+        left: -400%;
+    }
+    95% {
+        left: -400%;
+    }
+    100% {
+        left: -500%;
+    }
+}
+
+.seccion2 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seccion2 > h2 {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.seccion2 > .modeloContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.seccion2 > .modeloContainer > .frase-modelo1,
+.frase-modelo2 {
+    display: none;
+}
+
+.seccion2 > .modeloContainer > .modelo {
+    width: 100%;
+    max-width: 30rem;
+    border-radius: 2rem;
+    margin: 2rem 0;
+}
+
+.seccion3 {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 3rem;
+}
+
+.seccion3 > .nochecon {
+    width: 90%;
+    max-width: 50rem;
+    border-radius: 2rem;
+    margin: 2rem 0;
+    font-size: 3rem;
+    color: white;
+    font-family: 'Lobster';
+    text-align: center;
+}
+.seccion3 > .nochecon > b {
+    font-family: Rockwell;
+}
+
+.seccion3 > .slides {
+    width: 100%;
+}
+
+/* SLIDE */
+
+.slides {
+    padding: 0;
+    width: 90%;
+    max-width: 1000px;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide-container {
+    width: 100%;
+    display: block;
+}
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    max-width: 630px;
+    height: 420px;
+    display: block;
+    position: absolute;
+
+    transform: scale(0);
+
+    transition: all 0.7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+    opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity 0.2s;
+
+    color: #fff;
+    font-size: 156pt;
+    text-align: center;
+    line-height: 380px;
+    font-family: 'Varela Round', sans-serif;
+    background-color: rgba(255, 255, 255, 0.3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
+}
+
+.slide:hover + .nav label {
+    opacity: 0.5;
+}
+
+.nav label:hover {
+    opacity: 1;
+}
+
+.nav .next {
+    right: 0;
+}
+
+input:checked + .slide-container .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .nav label {
+    display: block;
+}
+
+.nav-dots {
+    width: 100%;
+    bottom: 9px;
+    height: 11px;
+    display: block;
+    position: absolute;
+    text-align: center;
+}
+
+.nav-dots .nav-dot {
+    top: -5px;
+    width: 11px;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    border-radius: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-dots .nav-dot:hover {
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4,
+input#img-5:checked ~ .nav-dots label#img-dot-5,
+input#img-6:checked ~ .nav-dots label#img-dot-6 {
+    background: rgba(0, 0, 0, 0.8);
+}
+/*SLIDE END*/
+
+@media (min-width: 768px) {
+    .navContainer {
+    }
+
+    .sidebar {
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        position: static;
+        height: 5rem;
+        background: transparent;
+        margin-bottom: 5rem;
+    }
+
+    .sidebar > a {
+        font-size: 2.5rem;
+    }
+
+    .closeContainer {
+        display: none;
+    }
+
+    .navContainer > .menu-movil {
+        display: none;
+    }
+}
+
+@media (min-width: 1200px) {
+    .seccion2 > .modeloContainer {
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        max-width: 120rem;
+    }
+
+    .seccion2 > h2 {
+        font-size: 3rem;
+    }
+
+    .seccion2 > .modeloContainer > .frase-modelo1,
+    .frase-modelo2 {
+        display: block;
+        margin-top: 2rem;
+        text-align: center;
+        font-size: 3rem;
+        color: white;
+    }
+}
