@@ -51,7 +51,6 @@ a {
 
 .navContainer .menu-movil {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
     width: 100%;
     height: 4rem;
@@ -59,7 +58,7 @@ a {
 
 .navContainer .menu-movil > .icon {
     font-size: 3rem;
-    margin-right: 20px;
+    margin-left: 30px;
     cursor: pointer;
 }
 
@@ -109,7 +108,7 @@ a {
 #slider {
     overflow: hidden;
     width: 100%;
-    max-width: 1000px;
+    height: 80rem;
     margin: 0 auto;
 }
 
@@ -202,16 +201,19 @@ a {
 
 .seccion3 > .nochecon {
     width: 90%;
-    max-width: 50rem;
-    border-radius: 2rem;
+    max-width: 100rem;
     margin: 2rem 0;
-    font-size: 3rem;
+    font-size: 5rem;
     color: white;
     font-family: 'Lobster';
     text-align: center;
 }
-.seccion3 > .nochecon > b {
+.seccion3 > span {
+    width: 90%;
+    font-size: 3rem;
+    color: white;
     font-family: Rockwell;
+    text-align: center;
 }
 
 .seccion3 > .slides {
@@ -220,129 +222,63 @@ a {
 
 /* SLIDE */
 
-.slides {
-    padding: 0;
-    width: 90%;
-    max-width: 1000px;
-    height: 500px;
+.Slider {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 160rem;
+    min-height: 40rem;
     margin: 0 auto;
-    position: relative;
-}
-.slides * {
-    user-select: none;
-    -ms-user-select: none;
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    -webkit-touch-callout: none;
+    margin-bottom: 5rem;
+    display: flex;
+    background: white;
 }
 
-.slides input {
-    display: none;
-}
-
-.slide-container {
+.Slider > img {
+    position: absolute;
     width: 100%;
-    display: block;
-}
-
-.slide {
-    top: 0;
+    height: calc(100% - 4rem);
     opacity: 0;
-    width: 100%;
-    max-width: 630px;
-    height: 420px;
-    display: block;
-    position: absolute;
-
-    transform: scale(0);
-
-    transition: all 0.7s ease-in-out;
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-}
-
-.nav label {
-    width: 200px;
-    height: 100%;
-    display: none;
-    position: absolute;
-
-    opacity: 0;
-    z-index: 9;
-    cursor: pointer;
-
-    transition: opacity 0.2s;
-
-    color: #fff;
-    font-size: 156pt;
-    text-align: center;
-    line-height: 380px;
-    font-family: 'Varela Round', sans-serif;
-    background-color: rgba(255, 255, 255, 0.3);
-    text-shadow: 0px 0px 15px rgb(119, 119, 119);
-}
-
-.slide:hover + .nav label {
-    opacity: 0.5;
-}
-
-.nav label:hover {
+.Slider > img:first-child {
     opacity: 1;
+    transition: 0.3s ease;
 }
 
-.nav .next {
-    right: 0;
-}
-
-input:checked + .slide-container .slide {
+.Slider > img:target {
     opacity: 1;
-
-    transform: scale(1);
-
-    transition: opacity 1s ease-in-out;
+    transition: 0.3s ease;
 }
 
-input:checked + .slide-container .nav label {
-    display: block;
-}
-
-.nav-dots {
-    width: 100%;
-    bottom: 9px;
-    height: 11px;
-    display: block;
+.Slider > .selectorImg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: absolute;
-    text-align: center;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    height: 4rem;
 }
 
-.nav-dots .nav-dot {
-    top: -5px;
-    width: 11px;
-    height: 11px;
-    margin: 0 4px;
-    position: relative;
-    border-radius: 100%;
-    display: inline-block;
-    background-color: rgba(0, 0, 0, 0.6);
+.Slider > .selectorImg > li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    margin: 0 1rem;
+    border-radius: 50%;
+    background: cornflowerblue;
+}
+.Slider > .selectorImg > li > a {
+    color: #202020;
+    padding: 1rem;
 }
 
-.nav-dots .nav-dot:hover {
-    cursor: pointer;
-    background-color: rgba(0, 0, 0, 0.8);
-}
-
-input#img-1:checked ~ .nav-dots label#img-dot-1,
-input#img-2:checked ~ .nav-dots label#img-dot-2,
-input#img-3:checked ~ .nav-dots label#img-dot-3,
-input#img-4:checked ~ .nav-dots label#img-dot-4,
-input#img-5:checked ~ .nav-dots label#img-dot-5,
-input#img-6:checked ~ .nav-dots label#img-dot-6 {
-    background: rgba(0, 0, 0, 0.8);
-}
 /*SLIDE END*/
 
 @media (min-width: 768px) {
@@ -370,6 +306,10 @@ input#img-6:checked ~ .nav-dots label#img-dot-6 {
     .navContainer > .menu-movil {
         display: none;
     }
+
+    .Slider {
+        min-height: 60rem;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -392,5 +332,8 @@ input#img-6:checked ~ .nav-dots label#img-dot-6 {
         text-align: center;
         font-size: 3rem;
         color: white;
+    }
+    .Slider {
+        min-height: 70rem;
     }
 }
